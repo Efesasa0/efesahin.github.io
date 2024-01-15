@@ -2,7 +2,7 @@
 var modal = document.getElementById('pdfModal');
 
 // Get the button that opens the modal
-var btn = document.querySelector('.navbar a[href="./assets/content/Efe_Sahin_Raw.pdf"]');
+var btn = document.querySelector('.navbar a[href="./assets/content/Efe_Sahin.pdf"]');
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
