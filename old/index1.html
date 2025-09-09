@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Efe Sahin | AI Researcher</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter"
+    />
+    <style>
+      /* Reset default browser styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #fae9ec; /* a light neutral shade */
+        color: #333;
+      }
+
+      /* Container that holds main content */
+      .container {
+        max-width: 600px;
+        width: 100%;
+        margin: 20px auto 100px; /* bottom margin to avoid overlap with fixed footer */
+        padding: 20px;
+        text-align: left;
+        position: relative;
+        border-radius: 8px;
+        background-color: #fae9ec; /* a light neutral shade */
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      .header-text {
+        flex: 1;
+        margin-right: 20px;
+      }
+
+      .header-text h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+        color: #111;
+      }
+
+      .header-text p {
+        color: #555;
+      }
+
+      .header img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        background-color: #ffffff;
+        flex-shrink: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .main-content {
+        margin-bottom: 30px;
+      }
+
+      .main-content p {
+        line-height: 1.6;
+      }
+
+      .side-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .side-content p {
+        line-height: 1.6;
+        flex: 1;
+        margin: 0;
+        color: #333;
+      }
+
+      .cv-preview {
+        width: 120px;
+        height: 160px;
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #222;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+      }
+
+      .cv-preview:hover {
+        transform: scale(1.05);
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .overlay-content {
+        position: relative;
+        width: 90%;
+        height: 90%;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .overlay-content embed {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 10px;
+      }
+
+      /* Footer pinned to bottom */
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #222;
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+      }
+
+      @media (max-width: 800px) {
+        .cv-preview {
+          margin: 10px 0;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 10px;
+          margin: 10px auto 80px;
+        }
+
+        .header img {
+          width: 80px;
+          height: 80px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- HEADER -->
+      <div class="header">
+        <div class="header-text">
+          <h1>I'm Efe Sahin</h1>
+          <p>Aspiring AI Research Scientist</p>
+        </div>
+        <img src="./assets/content/littleman.jpg" alt="Profile Picture" />
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div class="main-content">
+        <p>Hello, lets connect.</p>
+      </div>
+
+      <!-- SIDE CONTENT -->
+      <div class="side-content">
+        <p>
+          <strong>Contact:</strong><br />
+          efesasa[at]gmail[dot]com<br />
+          +90-533-301-75xx
+        </p>
+        <div class="cv-preview" onclick="openCV()">
+          <p style="text-align: center; margin: 0">View CV</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="cvOverlay" onclick="closeCV()">
+      <div class="overlay-content" onclick="event.stopPropagation()">
+        <embed src="./assets/content/efesahin.pdf" type="application/pdf" />
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p>© 2025 Efe Sahin | AI Researcher</p>
+    </div>
+
+    <script>
+      function openCV() {
+        document.getElementById("cvOverlay").style.display = "flex";
+      }
+
+      function closeCV() {
+        document.getElementById("cvOverlay").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

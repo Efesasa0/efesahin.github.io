@@ -1,0 +1,235 @@
+<link rel="stylesheet" href="../style/style.css" />
+<p class="author">
+  Efe Sahin
+  <br />
+  October 10, 2024
+  <a href="https://medium.com/@efesasa/von-neumanns-lost-lecture-the-computer-and-the-brain-part-1-46040a2ffbd5">Medium Article</a>
+</p>
+<div class="abstract">
+  <h1>Computer and the Brain | Book Review Part 1</h1>
+  <p>
+    John Von Neumann, a
+    <strong>Hungarian-born</strong>
+    scientist is argued to be the greatest thinker of the 20th century. I am assuming a low chance that you have not heard of his name before if you are reading this.
+  </p>
+  <p>
+    Before the
+    <a href="https://en.wikipedia.org/wiki/The_Computer_and_the_Brain">Computer and The Brain</a>
+    was written, the fields of neuroscience and computation were separate, and this book marks the earliest serious merge of the two fields. It is widely accepted that the brain-inspired the design of computation, and the intuition at play here is what's amazing about it. Using the physics concepts to theory craft and implement in another field.
+  </p>
+  <div class="photo-display"><img class="photo" style="width: 500px; max-width: 56%" src="../assets/notes/voncomputerandthebrain.jpeg" /></div>
+  <div class="photo-caption"><a href="https://www.amazon.com/Computer-Brain-Silliman-Memorial-Lectures/dp/0300181116">Amazon link</a></div>
+  <p>
+    In the 1950s, the machines were not so great yet great scientists were sure the
+    <strong>level of technology and intellectual tasks done by machines was only going to get better.</strong>
+    <a href="https://en.wikipedia.org/wiki/Stanis%C5%82aw_Ulam">Stanislav Ulam</a>
+    , a Polish Mathematician, Physicist, and Computer Scientist who also worked on the Manhattan Project with Von Neumman and had regular conversations together…
+  </p>
+  <p>
+    It was Von Neumman who first discussed
+    <strong>technological “singularity”</strong>
+    originated
+    <strong>from the event horizon</strong>
+    singularity discussed in physics focused on black holes where the sciences as know them break apart, and no definitive rules are governed.
+  </p>
+  <p>
+    Technological singularity is a theory where machines are put by us, or by themselves into an
+    <strong>ever-lasting loop of self-improvement.</strong>
+    Ulam noted as follows in his writings:
+  </p>
+  <p><i>One conversation centered on the ever accelerating progress of technology and changes in the mode of human life, which gives the appearance of approaching some essential singularity in the history of the race beyond which human affairs, as we know them, could not continue.</i></p>
+  <h2>Von Neumann:</h2>
+  <p>
+    He was in short involved in the field of
+    <strong>physics, quantum mechanics, math, game theory, chemistry, nuclear power, computer programming and architecture, and robotics.</strong>
+    The
+    <a href="https://www.amazon.com/Innovators-Hackers-Geniuses-Created-Revolution/dp/1476708703">The Innovators</a>
+    book by Walter Isaacson, describes him like a bee, pollinating each different field with his intuition. If you are questioning whether he had contributed to the field you are studying/ or professing … yes he was probably there.
+  </p>
+  <br />
+  <div class="photo-display"><img class="photo" style="width: 300px; max-width: 56%" src="../assets/notes/von.jpeg" /></div>
+  <div class="photo-caption">
+    J. Robert Oppenheimer (left), John von Neumann (right):
+    <a href="https://www.britannica.com/biography/John-von-Neumann">Source</a>
+  </div>
+  <br />
+  <p>
+    The book I will give a
+    <strong>detailed summary</strong>
+    of with
+    <strong>my commentary</strong>
+    to the best of my ability. His studies on this topic were cut short as he was dying from bone cancer which affected him physically and mentally. He had already contributed so much to other sciences before and got very deep into the intersection of
+    <strong>computer science and neuroscience</strong>
+    here.
+  </p>
+  <p>We will cover chapter one here titled “The Computer”. I will cover the second chapter titled “The Brain” hopefully in a few weeks.</p>
+  <p>The book is not an easy read and is analytical heavy which might be hard for some readers. Because I admire his intellect and his ability to contribute to so many fields I wanted to write about it and challenge myself. I am choosing this contribution of his mainly because it also aligns with my current interest that being neuroscience. Lastly, I take responsibility for the explanations I will be making here as it was not an easy reading material for me.</p>
+
+  <h2>Part 1: The Computer</h2>
+  <p>
+    Existing computers at the time fell into
+    <strong>analog and digital</strong>
+    at the core. Analog and digital systems operate on continuous and discrete spaces respectively.
+  </p>
+  <h3>Continuous System:</h3>
+  <p>
+    An example of a continuous system is
+    <a href="https://youtu.be/kpoanOlb3-w">acoustic drums</a>
+    , where the sound is produced by the physical vibrations of a drumhead when struck creating resonance. These vibrations create continuous sound waves, where the intensity, and frequency depend on where you hit it and give you a smooth sound.
+  </p>
+  <h3>Discrete System:</h3>
+  <p>On the contrary, a discrete system is represented by electronic drums, which work by triggering pre-recorded digital samples when you hit the pads. The electronic system then processes and outputs discrete sound events, which limits the continuous variability.</p>
+  <h3>Analog Computation:</h3>
+  <p>Numbers are stored here in continuous form like the voltage, current, or mechanical motion. The 4 basic operations of arithmetic (addition, subtraction, multiplication, division) can be done by manipulating currents.</p>
+  <p>
+    In some other analog computers, mechanical motion is at play and it's called the
+    <strong>differential analyzer.</strong>
+    The same 4 basic operations are implemented with the differential gear to calculate: $(x\pm y)*0.5$
+  </p>
+  <p>
+    For multiplication, the
+    <strong>integrator</strong>
+    is used, and the inverse with some tricks will give you division. Remind you, that we are still working with continuous numbers in this example also. The operations $(x\pm y)*0.5$ and the integrator in this example are also more viable than the arithmetical ones. The book claims having the exact implementation of the 4 basic arithmetic operations would not be economically viable.
+  </p>
+  <br />
+  <div>$$(x \pm y)*0.5 \text{ and} \int^{t} x(t)dy(t)$$</div>
+  <div class="photo-caption">Differential gear computes (right), integrator computes (left).</div>
+  <br />
+  <h3>Digital Computation:</h3>
+  <p>
+    We are now talking about the
+    <strong>binary system of arithmetic</strong>
+    and how we encode our base-10 to base-2 and represent it in a sequence of decimal digits in the computer. A marker is most similar to a digit. At the time Von Neumman wrote it, it was referred to as the decimal marker system, you might know it as the binary system.
+  </p>
+  <ul>
+    <li>1 marker → 1 combination (0, 1)</li>
+    <li>2 markers → 4 combinations (00, 01, 10, 11)</li>
+    <li>3 markers → 8 combinations (000, 001, 010, 100, …, 111)</li>
+    <li>4 markers → 16 combinations (0000, …, 1111)</li>
+  </ul>
+  <p>I will not dive deeper into how the encoding is done from base-10 to base-2. The main point is numbers are stored discretely.</p>
+  <p>For example, to represent a select group of characters like below, you need 8 markers giving you 2⁸=256 combinations, 80 of which to use.</p>
+  <br />
+  <div class="photo-display"><img class="photo" style="width: 600px; max-width: 56%" src="../assets/notes/vontable.jpeg" /></div>
+  <div class="photo-caption">
+    <a href="https://www.sciencefriday.com/educational-resources/write-your-name-in-binary-code/">Source</a>
+  </div>
+  <h2>Fundamentals:</h2>
+  <h3>Parallelization:</h3>
+  <p>
+    For example, we have a 735.829, a 12-digit number, each digit represented by groups of 4 markers (because with only four markers can we represent the first 10 numbers, hence we need 4 times 12 = 48
+    <strong>channels to have the information readily available in other parts</strong>
+    of the computer. By representing numbers in the discrete space, we can benefit from parallelization. Von Neumann doesn't mention analog systems and parallelization likely because it wasn't so common due to difficulties of working with continuous signals like signal degradation which would cause your computer to be out of sync precision-wise between different parts.
+  </p>
+  <br />
+  <div class="photo-display"><img class="photo" style="width: 600px; max-width: 56%" src="../assets/notes/vonparallel.png" /></div>
+  <div class="photo-caption"><a href="https://www.youtube.com/watch?v=Axx2xuB-Xuo">Source: Technic University of Berlin, Prof Dr. Ben</a></div>
+  <br />
+  <p>
+    <strong>Ideally, we want to use parallelization when a task is near 100% parallelizable</strong>
+    (divide the tasks and the tasks are independent of each other’s outcomes) to speed up computation. Today parallelization is widely used for processing large datasets under time constraints and running ML or DL models for inference stage using HPC platforms(High-performance computing). Amdahl’s Law is a simplification of how much speedup we can get.
+  </p>
+  <div>$$S(N)=\frac{1}{(1-P)+\frac{P}{N}}$$</div>
+  <p>It essentially separates the tasks into a series portion and a parallelizable portion. We can only apply parallelization for the second part. The formula essentially shows that speedup is limited by the portion of the task that remains serial.</p>
+  <h3>Implementing the Basic Operations:</h3>
+  <p>We will not dive deep into binary arithmetic concerned with addition, subtraction, division, and multiplication that are done in digital computers. The point is, that the implementation and theory of these operations are very different than analog systems and operate discretely.</p>
+  <p>If you were to command the computer to carry out these basic operations on an analog computer, you would need “enough” organs. For the digital computers we are talking about, the principal idea is the four basic arithmetic operations are carried by only one organ and one is enough. Of course, you can use multiple at once to increase performance, but we are not concerned with this, but with functionality.</p>
+  <p>Today the ALU (Arithmetic Logic Unit) organ is responsible for that. The following example is Apple’s M1 2020 CPU architecture looking at the 32-bit ALU (32-bit or markers precision for basic arithmetic).</p>
+  <br />
+  <div class="photo-display"><img class="photo" style="width: 600px; max-width: 56%" src="../assets/notes/vonapple.png" /></div>
+  <div class="photo-caption"><a href="https://x.com/kenshirriff/status/1327025912185929734">Source: Ken Shirriff post at X</a></div>
+  <h3>Memory:</h3>
+  <p>
+    Like you need a workspace to place your books, laptop, coffee, or tea, you need a physical space inside a computer. In other words, to carry out the basic operations you need
+    <strong>memory where you store calculations and your planning</strong>
+    i.e. order of your work. In the example of your workspace, you can have multiple tables at once and people working on them, and for a computer, you can have
+    <strong>multiple memory organs thus increasing the capacity of work to be done.</strong>
+    To identify which table to work on we need the address and we assign numbers uniquely to each different memory space/register. Similar to addressing memory registers, we can assign a unique address to each basic arithmetic operation. To carry out the work, you need to just order the processing of operations and on which memory registers.
+  </p>
+  <p>
+    While ordering tasks, you can decide to
+    <strong>include branching</strong>
+    (if else statements introducing the concept of “states”) and can also transfer information from one memory register to another called a “successor”. If the transfer is done via branching it is called “conditional transfer”. Any computation that you want to carry out at the end can be represented by a sequence of decimal digits and stored inside the initial memory register. Planning and execution are finally interlinked.
+  </p>
+  <h3>Precision:</h3>
+  <div class="quote">
+    <i>"You want a valve that doesn’t leak and you try everything possible to develop one. But the real world provides you with a leaky valve. You have to determine how much leakiness you can tolerate."</i>
+    ~ Arthur Rudolph, Developer of Saturn V Moon rocket
+  </div>
+  <p>
+    Because
+    <strong>there is a limit to how much memory we can have,</strong>
+    there is the problem of precision, i.e. percentage of the original knowledge we can keep.
+  </p>
+  <p>Let's say you want to measure the length of a snake that is exactly 1000 meters. and computer that at core measures 1 meter, with a precision of 1:10³ would essentially have a margin of error +-1, because 10³ is roughly its limit.</p>
+  <p>At the time the Computer and the Brain was written, analog and hybrid (electrical-analog) computers would have a precision of at most 1:10⁵. So measuring a 1000-meter snake would have an error rate of 0.001 or 1 centimeter. For digital like the modern computers we have today, it was 1:10¹² (+- 1 nanometer).</p>
+  <p>So why do we need higher precision? Or do we need higher precision? For most day tasks 1:10³ precision is enough, for scientific tasks like aerospace, quantum physics, or molecular biology, the required precision can go up to 1:10⁹. I can personally give an example from a competition about processing exo-chemistry satellite data of exoplanets. Yes, it is very niche.</p>
+  <br />
+  <div class="photo-display"><img class="photo" style="width: 600px; max-width: 56%" src="../assets/notes/vonariel.png" /></div>
+  <div class="photo-caption"><a href="https://www.kaggle.com/competitions/ariel-data-challenge-2024">Source: Kaggle Competition link</a></div>
+  <br />
+  <div class="quote">
+    <i>
+      "The Ariel Data Challenge focuses on exoplanet chemistry, particularly the composition of an exoplanet’s atmosphere. When a planet transits in front of its host star, we observe a dimming of certain wavelengths. As light passes through the planet’s atmosphere, it interacts with various elements, allowing specific wavelengths to be observed by satellites, revealing the atmosphere’s composition. The data collected is transferred to a digital by the satellite and there are 7 steps of processing that data concerned with the electronic, thermal, and noise at the quantum level. I hope this
+      gives an idea of why high precision is important. This mission will help researchers to detect hydrogen, oxygen, carbon, and methane. Big evidence for signs of life."
+    </i>
+  </div>
+  <p>
+    Today, precision has numerous formats.
+    <strong>IEEE standard is the house of few formats.</strong>
+    In IEEE 754 for example the 32-bit format looks like follows:
+  </p>
+  <br />
+  <div class="photo-display"><img class="photo" style="width: 800px" src="../assets/notes/vonieee.png" /></div>
+  <br />
+  <p>We essentially have to store. Essentially there is a formula for it, but we don’t need to get deep any further.</p>
+  <ul>
+    <li>One bit for the Sign (+ or -) either 0 or 1 respectively.</li>
+    <li>Eight bits for Exponent (exponent = stored_exponent -127)</li>
+    <li>23 bits for Fraction / Mantissa (a leading leftmost 1 bit is implied → 24-bit precision)</li>
+  </ul>
+  <p>
+    Like 32-bit, there are 64-bit, 128-bit, or 16-bit formats too.
+    <strong>Essentially, when we do arithmetic operations we want to minimize rounding errors that accumulate over time.</strong>
+  </p>
+  <h3>Speed:</h3>
+  <p>
+    The speed factor depends on
+    <strong>how fast you can access memory</strong>
+    . Since we talked about multiple memory registers, they can be also layered hierarchically.
+  </p>
+  <p>Access time increases exponentially as you get deeper down the hierarchy but the size also increases. So there is an inverse relationship between access time (speed) and the size of the memory register we want to access. Today accessing RAM takes about 10 nanoseconds, and Von Neumann provides access times of some present at his time …</p>
+  <ul>
+    <li>Ferromagnetic core memory: 5 to 15 microseconds</li>
+    <li>Electrostatic memory: 8 to 20 microseconds</li>
+    <li>Magnetic drums: 24 to 3 milliseconds</li>
+    <li>Magnetic tapes: 14 microseconds per line (words are 5 to 15 lines)</li>
+  </ul>
+  <p>Modern architecture now uses hard disks at the bottom layer, much more resilient to motion than magnetic tapes.</p>
+  <p>The memory architecture is but an approximation of what a good working flow would look like in the dumbest possible way that a machine can comprehend. It kind of shows that when things are dumbed down so much the impact it generates is unexpectedly impressive.</p>
+  <h3>Software-level speed:</h3>
+  <p>Although not mentioned, Software Engineers today are concerned with optimization i.e. speeding up computation that can be done at the software level. Big O notation is one example. Depending on the type of programming language, some are closer to hardware, and the closer, the faster. But generally, you can use Big O as a reference for each language.</p>
+  <p>
+    Big O is nothing new, so I will not go deep here either. Just know that the input i.e
+    <strong>the prior knowledge you provide to the computer significantly impacts the runtime</strong>
+    / execution time (the time it takes to finish the task).
+  </p>
+  <p>With given hardware, you can also optimize the software and improve speed. SO speed is not only dependent on the hardware available. Remember that Appolo 11 space mission software was small. It had 2,048 words, 32,768 bits of RAM (4.096 KB) + 589,824 bits of read-only memory (72 KB) and it ran on 0.043 MHz processor (CPU).</p>
+  <p>The below image is 80 KB for reference.</p>
+  <br />
+  <div class="photo-display"><img class="photo" style="width: 300px; max-width: 56%" src="../assets/notes/vonapollo.jpg" /></div>
+  <br />
+  <h2>Thank You</h2>
+  <p>
+    This has been the summary and some of my commentary on the first chapter. Lastly, before finishing off I want to share an
+    <a href="https://youtu.be/Oh31I1F2vds">interview</a>
+    recorded by his colleague Edward Teller.
+  </p>
+  <div class="quote">
+    <i>
+      "How Johnny von Neumann, could think so fast and so effectively. How he could find so many original solutions in areas where most people did not even notice the problems. I think I know a path of the answer, … Johnny Von Neumann enjoyed thinking. I have come to suspect the most people thinking is painfull. Some of us are addicted to thinking. Some of us find it a necesity. Johnny enjoyed it. I cannot think of Johhny now, without remebering a very tragic circumstance, when he was dying of cancer, his brain was affected. I visited him frequently and he was trying to do what he always tried
+      to do and he was trying to argue with me as he used to. And it wasn’t functioning anymore. And I think that he suffered from this loss more than I have seen any human to suffer in any other circumstances"
+    </i>
+    ~ Edward Teller
+  </div>
+</div>

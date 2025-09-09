@@ -1,202 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <title>Efe Sahin - Page</title>
+    <link rel="icon" href="assets/favicon.ico" />
 
-<head>
-    <title>Efe Sahin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+          processEscapes: true,
+        },
+        options: {
+          ignoreHtmlClass: "mathjax-ignore", // 👈 Skip these
+          processHtmlClass: "mathjax-process", // optional: only process marked elems
+        },
+        svg: { fontCache: "global" },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
 
-<body>
-    <div class="container">
-        <div class="main-content">
-            <div class="navbar">
-                <a><i class="fa fa-user"></i>Welcome</a>
-                <a href="#projects"><i class="fa fa-code"></i>Projects</a>
-                <a href="#blog"><i class="fa fa-briefcase"></i> Career</a>
-                <a href="#blog"><i class="fa fa-blog"></i> Blog</a>
-                <a href="./assets/content/Efe_Sahin.pdf" target="_blank"><i class="fa fa-file"></i> CV</a>
-            </div>
+  <body>
+    <main class="wrap">
+      <section class="terminal">
+        <div class="window-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="window-title">efe@machine &bull; bash</span>
+        </div>
+        <!-- prettier-ignore -->
+        <div class="window-screen">
+                <div class="line">Hi I am <span class="name">Efe Sahin</span>, <span class="em">(pronounced EH-feh SHA-heen)</span>. <a href="cv/cv.html" class="highlight" target="_blank">CV</a></div>
+                <div class="line">Currently I am a Master's student at UCL studying <strong>Machine Learning</strong>. I play drums, read non-fiction, and love sci-fi.</div>
+                <div class="line">My research interests include <strong>generative models</strong> and <strong>representation learning</strong>. The notes from my research and projects can be found here.</div>
+                <div class="line"><span class="prompt">efesasa@g</span>:<span class="path">~</span>$ cat img -w 100 me2006.jpg</div>
+                <img class="photo" src="assets/littleman.jpg" alt="Me looking at the visuals of a scientific textbook" />
 
-            <section id="about-me">
-                <h2>Welcome</h2>
-                <p>
-                    Hello! I'm <strong>Efe Sahin</strong>. I am a <em>Programmer living in Turkey with a robust background in mathematics.
-                    I have dedicated myself to transforming human and AI interaction, shifting focus from mere transactions to meaningfull, human-centered relationships.
-                </p>
-                <p>
-                    My current interests lie in the latest trends such as <em>Language Learning Models (LLMs),
-                        Artificial General Intelligence (AGI), and computer vision</em>. I am also fascinated by the
-                    prospects of <em>Brain-Computer Interfaces (BCI) and Space Exploration</em>
-                </p>
-                <p>
-                    When I'm not nerding out about tech developments, you can find me engaged in
-                    cinematography, basketball or reading non-fiction.
-                </p>
-                <p>
-                    Let's connect! Please reach out to me if you are interested. Say Hi✋.
-                </p>
-            </section>
-
-            <section id="projects">
-                <h2>Projects</h2>
-                <p> Here are some of the projects that reflect my expertise and passion in software development✨</p>
-                <div class="projects-container">
-                    <a href="https://github.com/Efesasa0/EEG-Data-OSC-Receiver" class="project-box blue"
-                        style="background-image: url('assets/content/project-pics/headband.jpeg');">
-                        <span class="project-title">EEG Data OSC Reciever</span>
-                    </a>
-                    <a href="https://github.com/Efesasa0/GDZ-elektrik-timeseries" class="project-box green"
-                        style="background-image: url('assets/content/project-pics/outage.jpeg');">
-                        <span class="project-title">GDZ-elektrikDatathon (team project)</span>
-                    </a>
-                    <a href="https://github.com/Efesasa0/real-time-speech-translation" class="project-box red"
-                        style="background-image: url('assets/content/project-pics/red.png');">
-                        <span class="project-title">realtime-audio-translation</span>
-                    </a>
-                    <a href="https://github.com/Efesasa0/llm-performance-test" class="project-box yellow"
-                        style="background-image: url('assets/content/project-pics/llm\ playground.png');">
-                        <span class="project-title">llm models playground</span>
-                    </a>
-                    <a href="https://github.com/app2scale/hdmr-opt" class="project-box blue"
-                        style="background-image: url('assets/content/project-pics/hdmr.png');">
-                        <span class="project-title">app2scale hdmr-opt (team project)</span>
-                    </a>
-                    <a href="https://github.com/Efesasa0/efesahin.github.io" class="project-box green"
-                        style="background-image: url('assets/content/project-pics/website.png');">
-                        <span class="project-title">This Website</span>
-                    </a>
-                    <a href="https://github.com/ColeBianchi/realtime-audio-censorship" class="project-box red"
-                        style="background-image: url('assets/content/project-pics/speech.png');">
-                        <span class="project-title">realtime-audio-censorship (team project)</span>
-                    </a>
-                    <a href="https://github.com/Efesasa0/smooth-life" class="project-box yellow"
-                        style="background-image: url('assets/content/project-pics/smooth.png');">
-                        <span class="project-title">smooth-life implementation</span>
-                    </a>
-                    <a href="https://github.com/Efesasa0/mlp-backprop-two-moons" class="project-box blue"
-                        style="background-image: url('assets/content/project-pics/mlp.png');">
-                        <span class="project-title">mlp backprob matlab</span>
-                    </a>
-                    <a href="https://github.com/Efesasa0/auto-encoder-maze" class="project-box green"
-                        style="background-image: url('assets/content/project-pics/maze.png');">
-                        <span class="project-title">auto-encoder maze solving</span>
-                    </a>
-                    <a href="https://github.com/Efesasa0/32-bit-cpu" class="project-box red"
-                        style="background-image: url('assets/content/project-pics/cpu.png');">
-                        <span class="project-title">32-bit cpu design & implement</span>
-                    </a>
-                    <a href="https://sites.psu.edu/lfshowcasesp23/2023/04/25/design-of-an-instrumented-mouthguard/"
-                        class="project-box yellow"
-                        style="background-image: url('assets/content/project-pics/cad.jpg');">
-                        <span class="project-title">Design of Instrumented-Mouthguard (team project)</span>
-                    </a>
-                    <a href="https://github.com/Efesasa0/multi-thread-file-processing" class="project-box blue"
-                        style="background-image: url('assets/content/project-pics/thread.png');">
-                        <span class="project-title">multi-threaded file interaction</span>
-                    </a>
-                    <a href="https://github.com/Efesasa0/cifar-cnn" class="project-box green"
-                        style="background-image: url('assets/content/project-pics/cifar.png');">
-                        <span class="project-title">cifar-nn</span>
-                    </a>
-                    <a href="https://github.com/Efesasa0/ib-perceptron" class="project-box red"
-                        style="background-image: url('assets/content/project-pics/audio.png');">
-                        <span class="project-title">perceptron audio classification</span>
-                    </a>
+                <div class="line"><span class="prompt">efesasa@g</span>:<span class="path">~</span>$ ls --fu projects | awk <span class="mathjax-ignore">'{print $6, $9}'</span></div>
+                <div class="columns">
+                    <span class="muted">2025</span><span class="muted">08</span><span class="muted">08</span><a
+                        href="#">ddpm-scratch <span style="color: var(--accent);">◳</span> <span style="color: var(--accent);">★</span></a>
+                    <span class="muted">2025</span><span class="muted">05</span><span class="muted">01</span><a
+                        href="https://github.com/Efesasa0/real-time-speech-translation">real-time-speech-translator <span style="color: var(--accent);">◳</span></a>
+                    <span class="muted">2024</span><span class="muted">12</span><span class="muted">12</span><a
+                        href="https://github.com/Efesasa0/smooth-life">smooth-life <span style="color: var(--accent);">◳</span> <span style="color: var(--accent);">★</span></a>
+                    <span class="muted">2024</span><span class="muted">04</span><span class="muted">13</span><a
+                        href="https://github.com/Efesasa0/carvana-unet">carvana-unet <span style="color: var(--accent);">◳</span></a>
                 </div>
-                <p> With each project I discover another thing I am intrested in.</p>
-            </section>
-
-            <section id="career">
-                <h2>Career</h2>
-                <p>I am actively keeping close eye on AI developments and trying to experiment with them myself. I am
-                    specifically learning and implementing diffusion models, llm models and
-                    Brain-Computer Interface (BCI) in my free time.</p>
-                <p>Currently at MEF University advised by Dr. Seniz Demir to research and develop an academic and career assistant for students.
-                    I am currently writing scripts to understand streaming EEG data. Looking to meet people in neuroscience and see a connection with Genai.
-                    Actively competing in Hackathons in Kaggle.</p>
-                <p>From 2020 to 2023, I attended <i>Penn State University</i> and completed my bachelor's degree in
-                    Computer Science with 3.40 GPA.</p>
-                <p>Ever since 2017, I have been traveling to the US 🇺🇸 from Turkey 🇹🇷 during the summers to learn
-                    the culture. Right now I am in Turkey and searching for job oppurtunities.</p>
-            </section>
-
-            <section id="blog">
-                <h2>Learning Blog</h2>
-                <div class="projects-container">
-                    <a href="https://medium.com/@efesasa/latent-potential-of-llms-some-prompt-engineering-examples-for-you-programmers-ce45c816ebe7"
-                        class="project-box red" style="background-image: url('assets/content/blog-pics/cat.jpg');">
-                        <span class="project-title">OpenAI API prompt engineering guide</span>
-                    </a>
-                    <a href="https://medium.com/@efesasa/the-road-review-faith-for-survival-67c08c056e0d"
-                        class="project-box green" style="background-image: url('assets/content/blog-pics/ROAD.png');">
-                        <span class="project-title">Book review: The Road</span>
-                    </a>
-                    <a href="https://medium.com/@efesasa/the-catcher-in-the-rye-review-a-call-to-adulthood-7660765554ad"
-                        class="project-box blue" style="background-image: url('assets/content/blog-pics/catcherrye.jpeg.png');">
-                        <span class="project-title">Book review: The Catcher in the Rye</span>
-                    </a>
-                    <a href="https://medium.com/@efesasa/von-neumanns-lost-lecture-the-computer-and-the-brain-part-1-46040a2ffbd5"
-                        class="project-box blue" style="background-image: url('assets/content/blog-pics/plugboard.png');">
-                        <span class="project-title">Book review: Computer and the Brain</span>
-                    </a>
+                <div class="line"><span class="prompt">efesasa@g</span>:<span class="path">~</span>$ ls publications</div>
+                <div class="line"><span class="prompt">efesasa@g</span>:<span class="path">~</span>$ ls --fu blogs | awk <span class="mathjax-ignore">'{print $6, $9}'</span></div>
+                <div class="columns">
+                    <span class="muted">2025</span><span class="muted">08</span><span class="muted">08</span><a
+                        href="notes/ddpm_theory_intuition.html">DDPM Theory Intuition | Latent Variable Models <span style="color: var(--accent);">★</span></a>
+                    <span class="muted">2024</span><span class="muted">10</span><span class="muted">10</span><a
+                        href="notes/computer_and_the_brain.html">Computer and the Brain | Book Review Part 1</a>
+                    <span class="muted">2025</span><span class="muted">01</span><span class="muted">15</span><a
+                        href="https://medium.com/@efesasa/latent-potential-of-llms-some-prompt-engineering-examples-for-you-programmers-ce45c816ebe7">Latent Potential of LLMs <span style="color: var(--accent);">◳</span></a>
                 </div>
-            </section>
-        </div>
+                <div class="line"><span class="prompt">efesasa@g</span>:<span class="path">~</span>$ ls socials</div>
+                <div class="line"><a href="#">YouTube</a>• <a href="https://github.com/Efesasa0">GitHub</a>• <a href="https://medium.com/@efesasa">Medium</a>• <a href="https://www.linkedin.com/in/efesas/">LinkedIn</a>• <a href="https://www.goodreads.com/user/show/123541383?ref=nav_profile_l">Goodreads</a></div>
+                <div class="line"><span class="prompt">efesasa@g</span>:<span class="path">~</span>$ exit</div>
+                <div class="line">
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
 
-        <div class="profile-section">
-            <div class="profile-pic">
-                <img src="./assets/content/littleman.jpg" alt="Efe Sahin">
+[Process completed]</div>
             </div>
-
-            <h1>Efe Sahin</h1>
-            <div class="profile-links">
-                <p>Programmer / Engineer from Turkey</p>
-                <h4>Interested in:</h4>
-                <p>Generative AI (LLM finetuning methods, model architectures, reasoning in mathematics, image generation) <br> Brain-Computer-Interfaces (EEG wave interpretation, whatever neuralink is doing 🤯)</p>
-                <h4>Socials:</h4>
-                <a href="https://linkedin.com/in/efesas" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i>LinkedIn</a>
-                <a href="https://github.com/Efesasa0" target="_blank"><i class="fa-brands fa-github"></i>GitHub</a>
-                <a href="your_youtube_link" target="_blank"><i class="fab fa-youtube"></i>YouTube (soon)</a>
-                <a href="https://medium.com/@efesasa" target="_blank"><i class="fab fa-medium"></i>Medium</a>
-            </div>
-
-            <div class="profile-info">
-                <h4>Languages:</h3>
-                    <ul>
-                        <li>English: fluent</li>
-                        <li>Turkish: native </li>
-                        <li>Spanish: Hola Mundo</li>
-                        <li>Latin: Salve Mundo</li>
-                    </ul>
-                    <h4>Hobbies:</h3>
-                        <ul>
-                            <li>Reading books</li>
-                            <li>Cinematography</li>
-                            <li>Drums</li>
-                            <li>Basket Ball | Tennis | Swimming</li>
-                        </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <a href="mailto:user&commat;domain&period;com"><i class="fa-solid fa-envelope"></i>
-            ef<!-- Comment -->es<!-- Comment --><!-- Comment -->asa&commat;gm<!-- Comment --><!-- Comment -->a<!-- Comment -->i<!-- Comment -->l&period;<!-- Comment -->c<!-- Comment --><!-- Comment -->om</a>
-        <p><a href="https://github.com/Efesasa0" target="_blank"><i class="fa-brands fa-github"></i> website
-                documentation</a> coded with AI tools</p>
-    </div>
-
-    <div id="pdfModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <iframe src="./assets/content/Efe_Sahin.pdf" style="width:100%; height:100%"></iframe>
-        </div>
-    </div>
-
-    <script src="./assets/js/script.js"></script>
-</body>
-
+      </section>
+      <footer class="bg-footer">
+        ©
+        <span id="year"></span>
+        Efe Sahin
+      </footer>
+      <button id="nightlight-toggle" title="Night Light Mode">🌙</button>
+      <script src="script/script.js"></script>
+    </main>
+  </body>
 </html>

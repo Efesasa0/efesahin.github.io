@@ -1,0 +1,426 @@
+/* =========================
+   Theme Variables
+   ========================= */
+:root {
+    --bg: #000000;
+    --term: #02180a;
+    --term-border: #0e2b18;
+    --text: #d7ffe7;
+    --muted: #7bb08f;
+    --accent: #26ff8b;
+    --emphasis: hsl(227, 95%, 64%);
+    --path: #9affc9;
+    --link: #63ffb1;
+    --success: #79ffa6;
+    --glow: 0 0 3px rgba(21, 255, 132, 0.35);
+    --shadow: rgba(0, 0, 0, 0.55);
+    --radius: 16px;
+    --maxw: 880px;
+}
+
+body.nightlight {
+    --bg: #f6fff9;
+    --term: #ffffff;
+    --term-border: #e0f4ea;
+    --text: #062113;
+    --muted: #3c7056;
+    --shadow: rgba(6, 33, 19, 0.08);
+    --accent: #008e4d;
+    --path: #1da86d;
+    --link: #0d8b5d;
+    --success: #0ea96a;
+    --glow: none;
+    --shadow: rgba(0, 0, 0, 0.55);
+    --radius: 16px;
+    --maxw: 880px;
+}
+
+/* =========================
+   Global Styles
+   ========================= */
+*{box-sizing: border-box}
+body {
+    margin: 0;
+    font-family: 'Ubuntu Mono', monospace;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    background-image:
+    radial-gradient(1000px 700px at 15% -10%, rgba(21,255,132,.10), transparent 60%),
+    radial-gradient(900px 600px at 110% 120%, rgba(21,255,132,.08), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(21,255,132,.05) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, rgba(21,255,132,.035) 0 1px, transparent 1px 24px);
+    background-attachment: fixed, fixed, fixed, fixed;
+}
+
+/* =========================
+   Headings & Quotes
+   ========================= */
+h1 {
+    font-size: 2.4em;
+    font-weight: 700;
+    color: var(--emphasis);
+    text-shadow: 0 0px 2px var(--accent), var(--glow);
+    margin: 36px 0 20px 0;
+    letter-spacing: 0.03em;
+    text-align: center;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--emphasis) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 0 0px 0px var(--accent), var(--glow);
+    margin: 30px 0 16px 0;
+    letter-spacing: 0.02em;
+    border-left: 4px solid var(--accent);
+    padding-left: 12px;
+    background: linear-gradient(90deg, var(--accent) 60%, var(--emphasis) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--muted);
+    text-shadow: 0 0px 0px var(--accent), var(--glow);
+    margin: 24px 0 10px 0;
+    letter-spacing: 0.01em;
+    border-left: 3px solid var(--muted);
+    padding-left: 10px;
+}
+
+.quote {
+    display: block;
+    font-size: 1.08em;
+    color: var(--emphasis);
+    background: rgba(21,255,132,0.13);
+    border-left: 4px solid var(--accent);
+    padding: 14px 22px;
+    margin: 22px 0;
+    border-radius: 10px;
+    font-style: italic;
+    box-shadow: 0 4px 16px rgba(21,255,132,0.10);
+}
+
+/* =========================
+   Layout Containers
+   ========================= */
+.wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    padding: 28px 0px 80px;
+    position: relative;
+}
+
+/* =========================
+   Terminal Window
+   ========================= */
+.terminal {
+    background: var(--term);
+    border: 1px solid var(--term-border);
+    border-radius: var(--radius);
+    box-shadow: 0 14px 34px var(--shadow);
+    position: fixed;
+    width: min(100vw, var(--maxw));
+    height: min(1000px, calc(100dvh - 24px));
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.terminal.closed {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.terminal.minimized {
+    height: 37px; /* only bar visible */
+}
+.terminal.maximized {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 0;
+}
+
+/* =========================
+   Window Bar & Dots
+   ========================= */
+.window-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px; 
+    border-bottom: 1px solid var(--term-border);
+    background: linear-gradient(0deg, rgba(21, 255, 132, .06), rgba(21,255,132,.12));
+    cursor: grab;
+    user-select: none;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius:50%;
+    box-shadow:var(--glow);
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+}
+
+.red{background:#1aff7a}
+.yellow{background:#0bd46a}
+.green{background:#06a856}
+
+.window-title {
+    margin-left:4px;
+    font-weight:700;
+    letter-spacing: .03em;
+    color:var(--muted)
+}
+
+/* =========================
+   Window Screen
+   ========================= */
+.window-screen {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0px 18px;
+    line-height: 1.6;
+    font-size: 18px;
+    text-shadow: var(--glow);
+}
+
+.spawned .window-screen {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+/* =========================
+   Responsive: Window Bar & Dots
+   ========================= */
+@media (max-width: 935px) {
+  .window-bar {
+    padding: 10px 10px;
+    gap: 10px;
+    min-height: 36px;
+    border-radius: 0;
+  }
+  .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    box-shadow: var(--glow);
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .window-title {
+    margin-left: 4px;
+    font-size: 1em;
+    letter-spacing: .03em;
+  }
+}
+
+/* =========================
+   Responsive: Window Screen
+   ========================= */
+@media (max-width: 935px) {
+  .window-screen {
+    font-size: 15px;
+  }
+  .spawned .window-screen {
+    max-width: 100%;
+    margin: 0;
+    font-size: 15px;
+  }
+  .wrap {
+    padding: 0;
+  }
+  .terminal{
+    border-radius: 0;
+    height: 100%;
+  }
+  .mjx-container{
+    font-size: 15px;
+  }
+  .mjx-container[display="true"] {
+    font-size: 15px;
+  }
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius:50%;
+  }
+}
+
+/* =========================
+   Scrollbar
+   ========================= */
+.window-screen::-webkit-scrollbar{
+  width:0; height:0;
+}
+
+/* =========================
+   Content Formatting
+   ========================= */
+.line{ white-space:pre-wrap; margin:12px 0; }
+.prompt{ color:var(--accent); text-shadow:var(--glow); }
+.path{ color:var(--path); opacity:.9; }
+.name{ color:var(--success); font-weight:700; text-shadow:var(--glow); }
+.highlight{ color:var(--emphasis) !important; font-weight:700; text-shadow:var(--glow); }
+.em{ color:var(--muted); }
+a{ color:var(--link); text-decoration:none; font-weight:700; padding:0 .25em; border-radius:6px; border:1px solid rgba(99,255,177,.28); background:rgba(21,255,132,.10); transition:background .15s ease, box-shadow .15s ease, border-color .15s ease; }
+a:hover{ background:rgba(21,255,132,.18); border-color:rgba(99,255,177,.55); box-shadow:0 0 14px rgba(21,255,132,.55); }
+.columns a::before{ content:'▸ '; color:var(--accent); margin-right:2px; text-shadow:var(--glow); }
+.line a{ margin-right:10px; }
+
+/* =========================
+   Images
+   ========================= */
+.photo{ width:240px; border-radius:10px; border:1px solid var(--term-border); }
+.figure{ width:500px; border-radius:10px; border:1px solid var(--term-border);}
+.photo-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.photo-caption {
+    font-size: 1em;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 8px;
+    max-width: 620px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+/* =========================
+   Columns
+   ========================= */
+.columns{ display:grid; grid-template-columns: 80px 60px 40px 1fr; gap:14px; margin:6px 0 2px;  align-items:center;}
+.columns .muted{ color:var(--muted); }
+
+/* =========================
+   Footer
+   ========================= */
+.bg-footer{ position: fixed; bottom: 110px; left: 10px; right: 0; text-align:center; font-size:14px; color:var(--muted); z-index: -1; }
+
+/* =========================
+   MathJax
+   ========================= */
+mjx-container {
+    color: var(--text);
+    font-size: 1.1em;
+    text-shadow: var    .dot {
+      aspect-ratio: 1 / 1;
+    }(--glow);
+}
+mjx-container[display="true"] {
+    display: block;
+    margin: 1em auto;
+}
+
+/* =========================
+   Nightlight Toggle Button
+   ========================= */
+#nightlight-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  background: var(--term);
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.3em;
+  box-shadow: 0 2px 8px var(--shadow);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+}
+
+#nightlight-toggle.active {
+  background: var(--accent);
+  color: var(--term);
+  border-color: var(--accent);
+}
+
+/* =========================
+   Responsive: Nightlight Toggle & Tabs
+   ========================= */
+@media (max-width: 600px) {
+  #nightlight-toggle {
+    width: 44px;
+    height: 44px;
+    font-size: 1.5em;
+    right: 12px;
+    bottom: 12px;
+  }
+  .window-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    height: 38px;
+    min-height: 38px;
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    box-shadow: var(--glow);
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+    background-clip: padding-box;
+  }
+  .window-title {
+    margin-left: 4px;
+    font-size: 1em;
+    letter-spacing: .03em;
+    line-height: 1;
+  }
+}
+
+/* =========================
+   Nightlight Mode Overrides
+   ========================= */
+body.nightlight {
+  background: #fffbe6 !important;
+  color: #2d2d2d !important;
+}
+body.nightlight .terminal,
+body.nightlight .window-screen {
+  background: #fffbe6 !important;
+  color: #2d2d2d !important;
+}
+body.nightlight .window-bar {
+  background: #ffe9b3 !important;
+  border-bottom: 1px solid #ffd700 !important;
+}
+body.nightlight .dot {
+  box-shadow: none !important;
+}

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Efe Sahin | AI Researcher</title>
+    <style>
+      /* Basic reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        background: #fae9ec;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      p {
+        margin-bottom: 10px;
+        padding: 0;
+        line-height: 1.7;
+      }
+
+      strong {
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      .profile-image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Left-align the content */
+      }
+
+      .irregular-image {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        clip-path: polygon(95% 0%, 0% 5%, 5% 100%, 100% 95%);
+        pointer-events: none;
+        -webkit-user-drag: none;
+        user-drag: none;
+      }
+
+      .image-caption {
+        width: 120px; /* Match image width */
+        margin-top: 15px; /* Slightly more space */
+        font-size: 0.8rem;
+        color: #555;
+        text-align: left;
+        line-height: 1.4;
+        transform: rotate(
+          3deg
+        ); /* Subtle 5-degree angle (change to -30deg for more tilt) */
+        transform-origin: left center; /* Rotates from left side */
+        padding-left: 8px; /* Adjust as needed */
+        font-style: italic; /* Optional stylistic touch */
+      }
+      @media (max-width: 600px) {
+        .image-caption {
+          transform: rotate(-3deg); /* Less tilt on mobile */
+        }
+      }
+
+      /* Wrapper to center content in the viewport minus footer space. */
+      #contentWrapper {
+        padding-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 600px);
+      }
+
+      /* Main content container */
+      .container {
+        width: 100%;
+        max-width: 500px;
+        max-height: 80vh;
+        overflow-y: auto;
+        background: #fae9ec;
+        padding: 0px;
+      }
+
+      /* Header */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .header-text h1 {
+        font-size: 2.5rem;
+        margin-bottom: 7px;
+      }
+      .header img {
+        width: 100px;
+        height: 100px;
+        pointer-events: none;
+        -webkit-user-drag: none;
+        user-drag: none;
+      }
+
+      .main-content {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+        text-align: left;
+      }
+
+      .side-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* Changed from flex-start to flex-end */
+        gap: 10px;
+        margin-left: auto; /* Pushes content to the right */
+        width: fit-content; /* Only takes as much width as needed */
+      }
+
+      .cv-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Space between CV box and text */
+      }
+
+      .cv-preview {
+        width: 100px;
+        height: 140px;
+        background: #000;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        transform-origin: center center;
+        margin-right: 10px; /* Pushes to the right */
+      }
+
+      .cv-preview:hover {
+        transform: scale(1.15);
+        background: #4acf47;
+      }
+
+      .cv-description {
+        width: 100px; /* Match CV box width */
+        font-size: 0.8rem;
+        color: #555;
+        text-align: center;
+      }
+
+      .cv-preview:hover {
+        transform: scale(1.05); /* Grows evenly in all directions */
+        background: #4acf47; /* Turns green */
+        box-shadow: 0 0 15px rgba(74, 207, 71, 0.5); /* Optional glow effect */
+      }
+
+      /* Improved Overlay for CV */
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .overlay.active {
+        display: flex;
+        opacity: 1;
+      }
+
+      .overlay-content {
+        position: relative;
+        width: 90%;
+        height: 90%;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .overlay-content embed {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: #4acf47;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 18px;
+        z-index: 1001;
+        border: none;
+      }
+
+      /* Pinned footer at bottom (60px tall) */
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        max-width: 100%;
+        background: #4acf47;
+        color: #fff;
+        text-align: center;
+        border-radius: 8px 8px 0 0;
+        height: 60px;
+      }
+
+      .footer p {
+        line-height: 60px;
+      }
+
+      @media (max-width: 600px) {
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .footer {
+          width: 90%;
+        }
+
+        .overlay-content {
+          width: 95%;
+          height: 85%;
+        }
+      }
+    </style>
+  </head>
+
+  <body oncontextmenu="return false;">
+    <!-- Flex wrapper for vertical + horizontal centering -->
+    <div id="contentWrapper">
+      <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+          <div class="header-text">
+            <h1>I'm <span style="color: #4acf47">Efe Sahin</span></h1>
+            <p>
+              Aspiring AI Research Scientist from
+              <a href="https://www.psu.edu" target="_blank">
+                <img
+                  src="./assets/psu3.png"
+                  alt="Penn State University"
+                  style="width: auto; height: 20px; vertical-align: middle"
+                /> </a
+              ><br />
+              Junior AI Engineer @
+              <a href="https://www.ideogen.com" target="_blank">
+                <img
+                  src="./assets/ideo.png"
+                  alt="Ideogen AG"
+                  style="width: auto; height: 15px; vertical-align: middle"
+                /> </a
+              ><br />
+              <strong
+                >Interests:
+                <span style="color: #4acf47"
+                  >Diffusion Models | Computer Vision</span
+                ></strong
+              >
+            </p>
+          </div>
+          <div class="profile-image-container">
+            <img
+              src="./assets/content/littleman.jpg"
+              alt="Profile Picture"
+              class="irregular-image"
+              draggable="false"
+            />
+            <!-- New caption section below image -->
+            <div class="image-caption">
+              AI Researcher<br />
+              Computer Vision Specialist<br />
+              Based in Turkey.
+            </div>
+          </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo,
+            voluptatem! lorem50
+          </p>
+          <p>
+            <strong>Contact:</strong><br />
+            efesasa[at]gmail[dot]com<br />
+            +90-533-301-75xx
+          </p>
+        </div>
+
+        <!-- SIDE CONTENT -->
+        <div class="side-content">
+          <div class="cv-container">
+            <div class="cv-preview" onclick="openCV()">
+              <p style="margin: 0; text-align: center">View CV</p>
+            </div>
+            <div class="cv-description">
+              PDF Format | 2 Pages | Updated Jan 2024
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CV OVERLAY -->
+    <div class="overlay" id="cvOverlay">
+      <div class="overlay-content">
+        <button class="close-btn" onclick="closeCV()">×</button>
+        <iframe
+          id="cvFrame"
+          src=""
+          style="width: 100%; height: 100%; border: none"
+          allow="autoplay"
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p>© 2025 Efe Sahin | AI Researcher</p>
+    </div>
+
+    <script>
+      // Additional contextmenu disable
+      document.addEventListener("contextmenu", (event) =>
+        event.preventDefault()
+      );
+
+      function openCV() {
+        const overlay = document.getElementById("cvOverlay");
+        const frame = document.getElementById("cvFrame");
+
+        // Load the PDF in the iframe
+        frame.src = "./assets/content/efesahin.pdf";
+
+        // Show the overlay
+        overlay.style.display = "flex";
+        // Small delay to ensure display is applied before animation
+        setTimeout(() => {
+          overlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }, 10);
+      }
+
+      function closeCV() {
+        const overlay = document.getElementById("cvOverlay");
+        overlay.classList.remove("active");
+        document.body.style.overflow = "auto";
+
+        // Hide after animation completes
+        setTimeout(() => {
+          overlay.style.display = "none";
+        }, 300);
+      }
+
+      // Close with Escape key
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeCV();
+        }
+      });
+
+      // Close when clicking outside the content
+      document.getElementById("cvOverlay").addEventListener("click", closeCV);
+      document
+        .querySelector(".overlay-content")
+        .addEventListener("click", function (e) {
+          e.stopPropagation();
+        });
+    </script>
+  </body>
+</html>
