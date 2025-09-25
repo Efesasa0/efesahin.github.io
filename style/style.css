@@ -17,7 +17,6 @@
     --radius: 16px;
     --maxw: 880px;
 }
-
 body.nightlight {
     --bg: #f6fff9;
     --term: #ffffff;
@@ -69,7 +68,6 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 h2 {
     font-size: 1.6em;
     font-weight: 700;
@@ -83,7 +81,6 @@ h2 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 h3 {
     font-size: 1.2em;
     font-weight: 700;
@@ -94,7 +91,6 @@ h3 {
     border-left: 3px solid var(--muted);
     padding-left: 10px;
 }
-
 .quote {
     display: block;
     font-size: 1.08em;
@@ -133,7 +129,6 @@ h3 {
     flex-direction: column;
     overflow: hidden;
 }
-
 .terminal.closed {
     opacity: 0;
     transform: scale(0.8);
@@ -164,7 +159,6 @@ h3 {
     cursor: grab;
     user-select: none;
 }
-
 .dot {
     width: 12px;
     height: 12px;
@@ -173,11 +167,9 @@ h3 {
     cursor: pointer;
     aspect-ratio: 1 / 1;
 }
-
 .red{background:#1aff7a}
 .yellow{background:#0bd46a}
 .green{background:#06a856}
-
 .window-title {
     margin-left:4px;
     font-weight:700;
@@ -197,7 +189,6 @@ h3 {
     font-size: 18px;
     text-shadow: var(--glow);
 }
-
 .spawned .window-screen {
     max-width: 700px;
     margin: 0 auto;
@@ -343,27 +334,33 @@ mjx-container[display="true"] {
   right: 18px;
   bottom: 18px;
   z-index: 9999;
-  background: var(--term);
+  background: linear-gradient(145deg, var(--term), var(--term-border));
   color: var(--accent);
-  border: 2px solid var(--accent);
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  font-size: 1.3em;
-  box-shadow: 0 2px 8px var(--shadow);
+  border: 1px solid var(--term-border);
+  border-radius: 6px;
+  width: 54px;
+  height: 32px;
+  font-size: 0.9em;
+  font-weight: 700;
+  font-family: 'Ubuntu Mono', monospace;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px var(--shadow), var(--glow);
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition: all 0.25s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  touch-action: manipulation;
 }
-
+#nightlight-toggle:hover {
+  box-shadow: 0 0 18px var(--accent);
+  border-color: var(--accent);
+}
 #nightlight-toggle.active {
-  background: var(--accent);
+  background: linear-gradient(145deg, var(--accent), var(--success));
   color: var(--term);
   border-color: var(--accent);
 }
+
 
 /* =========================
    Responsive: Nightlight Toggle & Tabs

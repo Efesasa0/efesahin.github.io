@@ -183,4 +183,5 @@ const nightBtn = document.getElementById('nightlight-toggle');
 nightBtn.addEventListener('click', () => {
   document.body.classList.toggle('nightlight');
   nightBtn.classList.toggle('active');
+  nightBtn.textContent = document.body.classList.contains("nightlight") ? "ON" : "OFF";
 });
