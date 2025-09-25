@@ -405,19 +405,3 @@ mjx-container[display="true"] {
 /* =========================
    Nightlight Mode Overrides
    ========================= */
-body.nightlight {
-  background: #fffbe6 !important;
-  color: #2d2d2d !important;
-}
-body.nightlight .terminal,
-body.nightlight .window-screen {
-  background: #fffbe6 !important;
-  color: #2d2d2d !important;
-}
-body.nightlight .window-bar {
-  background: #ffe9b3 !important;
-  border-bottom: 1px solid #ffd700 !important;
-}
-body.nightlight .dot {
-  box-shadow: none !important;
-}
