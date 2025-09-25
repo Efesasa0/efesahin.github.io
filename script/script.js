@@ -39,7 +39,6 @@ bar.addEventListener('touchstart', e => {
     offsetY = y - terminal.offsetTop;
   });
 });
-
 document.addEventListener('mousemove', e => {
   if (!isDragging) return;
   doDrag(e, terminal, offsetX, offsetY);
@@ -136,7 +135,6 @@ function spawnTerminal(contentHTML, title = "new@machine • bash") {
     if (term.classList.contains('maximized')) return;
     startDrag(e, term, barNew, setDragVars);
   });
-
   document.addEventListener('mousemove', e => {
     if (!dragging) return;
     doDrag(e, term, dragX, dragY);
@@ -145,7 +143,6 @@ function spawnTerminal(contentHTML, title = "new@machine • bash") {
     if (!dragging) return;
     doDrag(e, term, dragX, dragY);
   });
-
   document.addEventListener('mouseup', () => {
     dragging = false;
     endDrag(barNew);
@@ -154,7 +151,6 @@ function spawnTerminal(contentHTML, title = "new@machine • bash") {
     dragging = false;
     endDrag(barNew);
   });
-
   // Click to bring to front
   term.addEventListener('mousedown', () => {
     term.style.zIndex = ++topZ;
@@ -188,6 +184,3 @@ nightBtn.addEventListener('click', () => {
   document.body.classList.toggle('nightlight');
   nightBtn.classList.toggle('active');
 });
-
-// Optional: Nightlight mode styles
-// Add this to your CSS file as well:

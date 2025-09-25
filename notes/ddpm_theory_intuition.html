@@ -7,21 +7,4 @@
 
 <div class="abstract">
   <h1>DDPM Theory made intuitive | Latent Variable Models</h1>
-  <p>We shall start from the very start. This is how I at least went through by myself trying to understand how it actually works. The core question is how do I create something with minimal effort because we are lazy people. The "something" can be an image of a cat, video of a cat, an audio piece of a cat meowing, some piece of text about cats? and so on.</p>
-  <h2>The core question</h1>
-  <p>In mathematical terms we would like to sample from a probability distribution function of our choice, say $p(x)_{\text{cats}}$ that is the distribution of all cat images</p>
-  <div>$$x \sim p(x)_{\text{cats}}$$</div>
-  <p>The above is called: "the marginal likelihood of observing x". $x$ is the random variable, and sampling from $p(x)_{\text{cats}}$ means observing $x$, for example observing a cat image. Usually if we want to generate images of a cats this way, its impossible to generate from thin air. So lets hold on for now and look at flipping a coin example, which has probabilities set on a discrete space as follows (discrete meaning there is a finite set of probable outcomes):</p>
-  <div>$$P(X) = \begin{cases}\frac{1}{2} & \text{if } X=\text{observing heads} \\\frac{1}{2} & \text{if } X=\text{observing tails}\end{cases}$$</div>
-  <p>This is a distribution where we have a good approximation for. Now imagine a weird coin that when flipped might give you an image of a cat. And that image is say 128 by 128.</p>
-  <p>Therefore we can think of $p(x)_{\text{cats}}$ as that weird coin. If we just want to know how the coin behaves then we can simulate it computationally. If we can simulate it it means we can flip the coin how many times we want, and get a different result everytime (because we assume the weird coin has a continious probability distribution function).</p>
-  
-  <p>Note: the fact that coin flip gets</p>
-  <p></p>
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
 </div>
