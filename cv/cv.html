@@ -3,6 +3,7 @@
     width: 100%;
     height: 100%;
     aspect-ratio: 4 / 3;
+    border: none;
   }
   html,
   .window-screen {
@@ -11,5 +12,21 @@
     height: 100% !important;
     border-radius: 0 !important;
   }
+
+  /* 📱 On phones, make iframe very small */
+  @media (max-width: 768px) {
+    .pdf {
+      aspect-ratio: auto !important; /* remove fixed ratio */
+      width: 100vw !important; /* fit screen width exactly */
+      height: 100vh !important; /* fit screen height */
+      border-radius: 0 !important;
+    }
+    .window-screen {
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+    }
+  }
 </style>
-<iframe class="pdf" src="assets/efesahin.pdf" width="800" height="500"></iframe>
+
+<iframe class="pdf" src="assets/efesahin.pdf#view=FitH"></iframe>

@@ -185,3 +185,14 @@ nightBtn.addEventListener('click', () => {
   nightBtn.classList.toggle('active');
   nightBtn.textContent = document.body.classList.contains("nightlight") ? "ON" : "OFF";
 });
+
+// Open PDF directly on phone
+document.addEventListener("DOMContentLoaded", () => {
+  const cvLink = document.getElementById("cv-link");
+  if (cvLink && window.innerWidth <= 784) {
+    cvLink.setAttribute("href", "assets/efesahin.pdf");
+    cvLink.setAttribute("target", "_blank"); // open in new tab
+  }
+});
+
+
